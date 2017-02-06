@@ -6,11 +6,11 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 15:31:58 by bduron            #+#    #+#             */
-/*   Updated: 2017/01/03 15:36:01 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 10:58:51 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 size_t	ft_wlen(wchar_t s)
 {
@@ -35,7 +35,7 @@ size_t	rem(size_t len, wchar_t *s)
 
 	rem = len;
 	i = 0;
-	while (i < len && rem >= ft_wlen(s[i]))
+	while ((size_t)i < len && rem >= ft_wlen(s[i]))
 		rem -= ft_wlen(s[i++]);
 	return (rem);
 }

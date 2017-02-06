@@ -6,11 +6,11 @@
 /*   By: bduron <bduron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/13 17:30:06 by bduron            #+#    #+#             */
-/*   Updated: 2016/11/29 10:28:16 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 10:36:01 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {

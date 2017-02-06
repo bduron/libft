@@ -6,11 +6,11 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/02 10:27:01 by bduron            #+#    #+#             */
-/*   Updated: 2017/01/03 15:35:25 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 10:58:03 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int		ft_putwchar(wchar_t c)
 {
@@ -101,7 +101,7 @@ void	put_s_maj(t_flags *f)
 	if (!f->flags['-'])
 		(f->flags['0']) ? pad(f->width - len, '0')
 			: pad(f->width - len + rem(len, s), ' ');
-	while (n > 0 && *s && ft_wlen(*s) <= n)
+	while (n > 0 && *s && (long)ft_wlen(*s) <= n)
 	{
 		nb_octet = ft_putwchar(*s++);
 		n -= nb_octet;

@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/02 13:25:44 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/02 18:48:04 by bduron           ###   ########.fr       */
+/*   Created: 2017/02/06 10:18:22 by bduron            #+#    #+#             */
+/*   Updated: 2017/02/06 10:52:30 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef H_LIBFTPRINTF_H
-# define H_LIBFTPRINTF_H
+#ifndef H_FT_PRINTF_H
+# define H_FT_PRINTF_H
 
-# include <unistd.h>
-# include <string.h>
-# include <stdlib.h>
-# include <stdarg.h>
 # include "libft.h"
+# include <string.h>
+# include <stdarg.h>
 # define BUFSIZE 4096
 # define HEX_L "0123456789abcdef"
 # define HEX_U "0123456789ABCDEF"
@@ -29,13 +27,6 @@
 # define CYN   "\x1B[36m"
 # define WHT   "\x1B[37m"
 # define RES	"\x1B[0m"
-
-//typedef struct	s_list
-//{
-//	void			*content;
-//	size_t			content_size;
-//	struct s_list	*next;
-//}				t_list;
 
 typedef struct	s_flags
 {
@@ -79,15 +70,10 @@ void			launch_conv_strings(t_flags *f);
 void			launch_conv_unsigned(t_flags *f);
 size_t			rem(size_t len, wchar_t *s);
 size_t			ft_wlen(wchar_t s);
-//void			ft_putchar(char c);
-//void			ft_putstr(char const *s);
-//int				ft_isalpha(int c);
-//int				ft_isdigit(int c);
-//size_t			ft_strlen(const char *s);
-//int				ft_toupper(int c);
-//int				ft_atoi(const char *str);
-//void			ft_strdel(char **as);
-char			*ft_itoa(uintmax_t n);
-//void			*ft_memset(void *b, int c, size_t len);
+int				ft_printf_atoi(const char *str);
+char			*ft_printf_itoa(uintmax_t n);
+int				ft_putwchar(wchar_t c);
+int				isnt_id(t_flags *f);
+int				pad(int len, char c);
 
 #endif

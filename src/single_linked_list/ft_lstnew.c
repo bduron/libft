@@ -6,11 +6,11 @@
 /*   By: bduron <bduron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/13 07:40:24 by bduron            #+#    #+#             */
-/*   Updated: 2016/11/29 10:26:59 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 10:36:01 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {

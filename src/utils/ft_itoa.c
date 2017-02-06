@@ -6,11 +6,11 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 08:38:48 by bduron            #+#    #+#             */
-/*   Updated: 2016/11/29 10:28:04 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 10:36:22 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 char	*ft_itoa(int n)
 {

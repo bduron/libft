@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_printf_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 14:56:50 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/06 10:36:11 by bduron           ###   ########.fr       */
+/*   Created: 2016/11/04 14:48:01 by bduron            #+#    #+#             */
+/*   Updated: 2017/02/06 10:39:01 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+int		ft_printf_atoi(const char *str)
 {
-	char *str;
-	char *sc;
+	int is_negative;
+	int n;
 
-	if (!s || !f)
-		return (NULL);
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!str)
-		return (NULL);
-	sc = str;
-	while (*s)
+	n = 0;
+	is_negative = 0;
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v' ||
+			*str == '\r' || *str == '\f')
+		str++;
+	if (*str == '+')
+		str++;
+	else if (*str == '-')
 	{
-		*str = f(*s);
-		s++;
+		is_negative = 1;
 		str++;
 	}
-	*str = '\0';
-	return (sc);
+	while (*str >= '0' && *str <= '9')
+	{
+		n = n * 10 + (*str - '0');
+		str++;
+	}
+	return (is_negative ? -n : n);
 }

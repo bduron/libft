@@ -1,27 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_printf_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 10:16:12 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/06 10:35:08 by bduron           ###   ########.fr       */
+/*   Created: 2017/01/02 10:08:20 by bduron            #+#    #+#             */
+/*   Updated: 2017/02/06 10:20:44 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memalloc(size_t size)
+int		ft_printf(const char *format, ...)
+{
+	t_flags f;
+
+	f.plen = 0;
+	va_start(f.ap, format);
+	fmt(&f, format);
+	va_end(f.ap);
+	return (f.plen);
+}
+
+void	fmt(t_flags *f, const char *format)
 {
 	char *s;
 
-	if (!size)
-		return (NULL);
-	s = malloc(size);
-	if (!s)
-		return (NULL);
-	if (!ft_memset(s, 0, size))
-		return (NULL);
-	return (s);
+	s = (char *)format;
+	reset_flags(f);
+	while (*s)
+	{
+		if (*s != '%')
+		{
+			ft_putchar(*s);
+			f->plen++;
+		}
+		else
+		{
+			s = get_flags(s, f);
+			launch_conv(f);
+			reset_flags(f);
+		}
+		s++;
+	}
 }

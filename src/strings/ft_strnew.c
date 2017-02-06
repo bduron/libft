@@ -6,11 +6,11 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 11:14:05 by bduron            #+#    #+#             */
-/*   Updated: 2016/11/29 10:16:51 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 10:36:11 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 char	*ft_strnew(size_t size)
 {

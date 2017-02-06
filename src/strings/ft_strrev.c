@@ -6,11 +6,11 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 14:30:00 by bduron            #+#    #+#             */
-/*   Updated: 2016/11/29 10:16:17 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 10:36:11 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 void	ft_strrev(char *s)
 {

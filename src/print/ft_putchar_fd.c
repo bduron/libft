@@ -6,11 +6,11 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 12:55:51 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/04 15:50:25 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 10:35:42 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

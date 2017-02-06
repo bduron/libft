@@ -6,11 +6,11 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 14:48:01 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/02 18:23:56 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 10:36:22 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 long		ft_atoi(const char *str)
 {

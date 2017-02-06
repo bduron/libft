@@ -6,11 +6,11 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/02 10:18:13 by bduron            #+#    #+#             */
-/*   Updated: 2017/01/02 16:37:09 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 10:57:18 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 char	*get_flags(char *s, t_flags *f)
 {
@@ -23,7 +23,10 @@ char	*get_flags(char *s, t_flags *f)
 		*s == *(s + 1) ? f->mod[(int)ft_toupper(*s++)]++ : f->mod[(int)*s++]++;
 		*s == *(s - 1) ? s++ : 0;
 	}
-	(is_id(*s)) ? f->id = *s : --s;
+	if (is_id(*s)) 
+		f->id = *s;
+	else
+		--s;
 	(f->id == 0) ? f->plen-- : 0;
 	return (s);
 }

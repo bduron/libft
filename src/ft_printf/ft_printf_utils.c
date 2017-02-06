@@ -6,11 +6,11 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/02 10:20:13 by bduron            #+#    #+#             */
-/*   Updated: 2017/01/02 13:20:24 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 10:21:54 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int		count_digits(int nb)
 {
