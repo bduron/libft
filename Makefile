@@ -11,9 +11,7 @@
 # **************************************************************************** #
 
 NAME= libft.a
-SRC= src/*/*.c
-
-#	ft_atoi.c  \
+SRC= ft_atoi.c  \
 	ft_bzero.c  \
 	ft_isalnum.c  \
 	ft_isalpha.c  \
@@ -75,28 +73,42 @@ SRC= src/*/*.c
 	ft_squeeze.c  \
 	ft_isupper.c  \
 	ft_islower.c  \
-	ft_strrev.c
+	ft_strrev.c \
+	ft_printf.c \
+	get_next_line.c
 	
-#OBJ= $(SRC:.c=.o)
-OBJ= *.o 
+OBJ= $(SRC:.c=.o)
 HEADER= includes
 FLAGS= -g -Wall -Wextra -Werror
 
+VPATH= src/ft_printf/:src/get_next_line/:src/memory/:src/print/:src/single_linked_list/:src/strings/:src/utils/
+
+
+########################
+#    Makefile rules    # 
+########################
+
 all: $(NAME)
 
-$(NAME):
-	@gcc $(FLAGS) -c $(SRC) -I $(HEADER)
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
-	@echo "Compiling libft.a... OK"
+$(NAME): $(OBJ)
+	@ar rc $(NAME) $^
+	@ranlib $@
+	@tput ed
+	@echo -e '[ \033[32mLibft linked\033[0m ]'
+
+%.o: %.c
+	@gcc $(FLAGS) -c $^ -I $(HEADER)
+	@tput ed
+	@echo -ne 'Compiling [ \033[32m$^\033[0m ]\r'
 
 clean:
 	@rm -f $(OBJ)
-	@echo "Deleting object files... OK"
+	@echo "Deleting object files"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "Deleting libft.a... OK"
+	@echo "Deleting libft.a"
 
 re: fclean all
 
+.PHONY: clean fclean re
