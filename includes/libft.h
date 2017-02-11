@@ -20,6 +20,13 @@
 
 # define BUFF_SIZE 1
 
+typedef enum
+{
+	FALSE,
+	TRUE
+}		t_bool;
+
+
 typedef struct	s_list
 {
 	void			*content;
