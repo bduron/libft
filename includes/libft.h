@@ -6,7 +6,7 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 17:42:08 by bduron            #+#    #+#             */
-/*   Updated: 2017/06/22 17:19:34 by bduron           ###   ########.fr       */
+/*   Updated: 2017/06/22 19:43:58 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 void			ft_striter(char *s, void (*f)(char *));
 char			*ft_strmap(char const *s, char (*f)(char));
 char			*ft_strmapi(char const *s, char(*f)(unsigned int, char));
+void			ft_strsort(char **list, int (*cmp)());
 char			*ft_itoa(int n);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putchar_fd(char c, int fd);

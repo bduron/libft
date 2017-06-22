@@ -82,6 +82,7 @@ ft_strsplit.c \
 ft_strstr.c \
 ft_strsub.c \
 ft_strtrim.c \
+ft_strsort.c \
 ft_atoi.c \
 ft_isalnum.c \
 ft_isalpha.c \
