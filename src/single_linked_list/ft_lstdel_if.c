@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel_if.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bduron <bduron@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/13 17:30:06 by bduron            #+#    #+#             */
-/*   Updated: 2017/06/14 12:06:40 by bduron           ###   ########.fr       */
+/*   Created: 2017/06/22 16:59:47 by bduron            #+#    #+#             */
+/*   Updated: 2017/06/22 17:01:34 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_lstdel_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
 	t_list *tmp;
+	t_list *prev;
 
-	if (!*alst || !del)
-		return ;
-	tmp = *alst;
+	prev = 0;
+	tmp = *begin_list;
 	while (tmp)
 	{
-		*alst = tmp->next;
-		del(tmp->content, tmp->content_size);
-		free(tmp);
-		tmp = *alst;
+		if ((*cmp)(tmp->content, data_ref) == 0)
+		{
+			if (prev == 0)
+				*begin_list = tmp->next;
+			else
+				prev->next = tmp->next;
+			free(tmp);
+		}
+		prev = tmp;
+		tmp = tmp->next;
 	}
-	*alst = NULL;
 }

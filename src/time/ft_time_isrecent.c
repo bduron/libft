@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_time_isrecent.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bduron <bduron@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 07:20:52 by bduron            #+#    #+#             */
-/*   Updated: 2017/03/01 16:35:26 by bduron           ###   ########.fr       */
+/*   Created: 2017/06/22 16:36:23 by bduron            #+#    #+#             */
+/*   Updated: 2017/06/22 16:36:35 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int		ft_time_isrecent(time_t event)
 {
-	while (*s)
-		if (*s++ == c)
-			return ((char *)--s);
-	if (*s == c)
-		return ((char *)s);
-	return (NULL);
+	time_t now;
+
+	now = time(&now);
+	if (now - event >= 0 && now - event <= 6 * 365 / 12 * 24 * 60 * 60)
+		return (1);
+	else
+		return (0);
 }

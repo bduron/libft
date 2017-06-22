@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bduron <bduron@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 07:20:52 by bduron            #+#    #+#             */
-/*   Updated: 2017/03/01 16:35:26 by bduron           ###   ########.fr       */
+/*   Created: 2017/06/22 17:13:37 by bduron            #+#    #+#             */
+/*   Updated: 2017/06/22 17:17:39 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstrev(t_list **begin_list)
 {
-	while (*s)
-		if (*s++ == c)
-			return ((char *)--s);
-	if (*s == c)
-		return ((char *)s);
-	return (NULL);
+	t_list *current;
+	t_list *prev;
+	t_list *next;
+
+	current = *begin_list;
+	next = 0;
+	prev = 0;
+	while (current)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	*begin_list = prev;
 }

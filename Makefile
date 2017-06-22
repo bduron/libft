@@ -47,10 +47,14 @@ ft_putstr_fd.c \
 ft_lstaddback.c \
 ft_lstadd.c \
 ft_lstdel.c \
+ft_lstdel_if.c \
 ft_lstdelone.c \
 ft_lstiter.c \
 ft_lstmap.c \
 ft_lstnew.c \
+ft_lstsort.c \
+ft_lstrev.c \
+ft_lstinsert.c \
 ft_strcat.c \
 ft_strchr.c \
 ft_strclr.c \
@@ -88,16 +92,22 @@ ft_isprint.c \
 ft_isspace.c \
 ft_isupper.c \
 ft_itoa.c \
+ft_nblen.c \
 ft_squeeze.c \
 ft_tolower.c \
-ft_toupper.c  
+ft_toupper.c \
+ft_time_isrecent.c \
+ft_timestr.c \
+ft_timestr_del.c 
 	
 
 OBJ= $(SRC:.c=.o)
 HEADER= includes
 FLAGS= -g -Wall -Wextra -Werror
 
-VPATH= src/ft_printf/:src/get_next_line/:src/memory/:src/print/:src/single_linked_list/:src/strings/:src/utils/
+VPATH= src/ft_printf/:src/get_next_line/:src/memory/:src/print/ \
+		:src/single_linked_list/:src/strings/:src/utils/ \
+		:src/time/
 
 
 ########################

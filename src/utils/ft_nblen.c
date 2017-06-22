@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_nblen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bduron <bduron@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 07:20:52 by bduron            #+#    #+#             */
-/*   Updated: 2017/03/01 16:35:26 by bduron           ###   ########.fr       */
+/*   Created: 2017/06/22 17:19:11 by bduron            #+#    #+#             */
+/*   Updated: 2017/06/22 17:19:19 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int		ft_nblen(long n, int base)
 {
-	while (*s)
-		if (*s++ == c)
-			return ((char *)--s);
-	if (*s == c)
-		return ((char *)s);
-	return (NULL);
+	int len;
+
+	if (base < 2)
+		return (-1);
+	len = (n < 0 && base == 10) ? 2 : 1;
+	while (n /= base)
+		len++;
+	return (len);
 }

@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstinsert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bduron <bduron@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 07:20:52 by bduron            #+#    #+#             */
-/*   Updated: 2017/03/01 16:35:26 by bduron           ###   ########.fr       */
+/*   Created: 2017/06/22 17:17:24 by bduron            #+#    #+#             */
+/*   Updated: 2017/06/22 17:18:51 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstinsert(t_list *dst, t_list *src)
 {
-	while (*s)
-		if (*s++ == c)
-			return ((char *)--s);
-	if (*s == c)
-		return ((char *)s);
-	return (NULL);
+	t_list *tmp;
+	t_list *src_end;
+
+	if (!src || !dst)
+		return ;
+	tmp = dst->next;
+	dst->next = src;
+	src_end = src;
+	while (src_end->next)
+		src_end = src_end->next;
+	src_end->next = tmp;
 }

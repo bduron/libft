@@ -6,7 +6,7 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 17:42:08 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/06 12:44:42 by bduron           ###   ########.fr       */
+/*   Updated: 2017/06/22 17:19:34 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@
 # include <stdlib.h>
 # include <stdint.h>
 
+# include "ft_time.h"
+
 # define BUFF_SIZE 1
 
 typedef enum
 {
 	FALSE,
 	TRUE
-}		t_bool;
-
+}	t_bool;
 
 typedef struct	s_list
 {
@@ -93,11 +94,16 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void			ft_lstdel_if(t_list **begin_list, void *data_ref, int (*cmp)());
+void			ft_lstsort(t_list **headref, int (*lstcmp)());
+void			ft_lstrev(t_list **begin_list);
+void			ft_lstinsert(t_list *dst, t_list *src);
 int				ft_islower(int c);
 int				ft_isupper(int c);
 void			ft_squeeze(char *s, int c);
 void			ft_strrev(char *s);
 int				ft_isspace(int c);
+int				ft_nblen(long n, int base);
 int				get_next_line(int fd, char **line);
 int				ft_printf(const char *format, ...);
 
